@@ -16,31 +16,36 @@ class PostController extends Controller
     public function registration(Request $request){
         //init new object
         $user=new User_site;
-        $user->fill([
-          'name' =>$request->name,
-          'email'=>$request->email,
-          'password'=>$request->password,
-         ]);
-         $posts = post::all();
-         //get all post to check for exist
-         /*
-         $posts = post::all();
-         foreach($posts as $value ){
-            if ($value['name']==$user['name'] ){
-                if($value['password'] == $user['password']){
-                    if($value['email']==$user['email']){
-                        
-                        return redirect('/'); //go home
-
-                    }
-                }
-            }
-         }
-         */
+        $password_check =$request->input("password_check");
+        $posts = post::all();
+       
         
-         $user->save();
-
-         return view('main',['posts'=>$posts]);
+                $user->fill([
+                    'name' =>$request->name,
+                    'email'=>$request->email,
+                    'password'=>$request->password,
+                   ]);
+        
+        //get all users to check for exist
          
-    }
-}
+        $users = User_site::all();
+        foreach($users as $value ){
+           if ($value->name ==$user->name ){
+               if($value->password == $user->password){
+                   if($value->email ==$user->email){
+                       
+                       return redirect('/'); //go home
+
+                   }
+               }
+           }
+        }
+        if($user->password == $password_check ){
+           $user->save();
+        }
+        return view('main',['posts'=>$posts]);
+        
+        }     
+    
+   }
+

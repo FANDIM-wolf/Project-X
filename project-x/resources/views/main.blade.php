@@ -11,7 +11,8 @@
 <form action="/registration" method="get">
     <input type="text" name="name">
     <input type="text" name="email">
-    <input type="password" name="password">
+    <input type="text" name="password">
+    <input type="text" name="password_check">
     <input type="submit">
 </form>
 </body>
