@@ -21,6 +21,8 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_site_id');
             $table->foreign('user_site_id')
             ->references('id')->on('user_sites');
+            $table->string('location');
+            $table->string('category');
             $table->integer('views');
             $table->timestamps();
         });

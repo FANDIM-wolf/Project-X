@@ -15,4 +15,5 @@ use App\Http\Conttrollers;
 
 Route::get('/','PostController@get_all_post')->name('main');
 Route::get('/registration','PostController@registration')->name('main');
+Route::get('/post/{id}','PostController@get_post_by_id')->name('post');
 

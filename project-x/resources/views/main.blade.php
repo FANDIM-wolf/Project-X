@@ -5,8 +5,12 @@
 <body>
 
 @foreach($posts as $post)
-  <h2>{{$post['title']}}</h2>
+  <a href="/post/{{$post['id']}}">{{$post['title']}}</a>
+  <br>
+  <h2>{{$post['created_at']}}</h2>
+  <br>
 @endforeach
+
 
 <form action="/registration" method="get">
     <input type="text" name="name">
