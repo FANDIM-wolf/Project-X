@@ -1,0 +1,9 @@
+{
+    "id": 1,
+    "name": "admin",
+    "email": "fandim11@gmail.com",
+    "password": "elkinelkinelkin",
+    "image": "elkin.png",
+    "created_at": null,
+    "updated_at": null
+}
